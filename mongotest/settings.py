@@ -11,12 +11,12 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+
 # import mongoengine
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -28,7 +28,6 @@ SECRET_KEY = '_n9#8rk-#ggbr2d-mz=&1o$4x9*n+2wlc+^k!h&s5#0ty59ei*'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -75,37 +74,18 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'mongotest.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 
-# DATABASES = {
-#         'default': {
-#             'ENGINE': '',
-#             },
-#         }
-
-
-MONGO_PORT = 37620
-MONGO_USER = 'incept_db_user'
-MONGO_PASS = '3XYu$#s3772f7qC'
-MONGO_HOST = 'ds237620.mlab.com'
-MONGO_NAME = 'heroku_bp0nv8sz'
+MONGO_PORT = 27017
+MONGO_USER = 'amit'
+MONGO_PASS = 'amit123'
+MONGO_HOST = 'localhost'
+MONGO_NAME = 'test'
 MONGO_DATABASE_HOST = f'mongodb://{MONGO_USER}:{MONGO_PASS}@{MONGO_HOST}:{MONGO_PORT}/{MONGO_NAME}?retryWrites=false&w=majority'
 
-#
-# MONGO_PORT = 27017
-# MONGO_USER = 'nitin'
-# MONGO_PASS = 'r07wttzwiF9YNn58'
-# MONGO_HOST = 'cluster0-h8jfb.mongodb.net'
-# MONGO_NAME = 'admin'
-# MONGO_DATABASE_HOST = f'mongodb+srv://{MONGO_USER}:{MONGO_PASS}@{MONGO_HOST}/{MONGO_NAME}?retryWrites=false&w=majority'
-
-
 print(f"MONGO_DATABASE_HOST : {MONGO_DATABASE_HOST}")
-# mongoengine.connect(MONGO_NAME, host=MONGO_DATABASE_HOST, port=MONGO_PORT)
-
 
 DATABASES = {
     'default': {
@@ -113,9 +93,9 @@ DATABASES = {
         'NAME': MONGO_NAME,
         'CLIENT': {
             'host': MONGO_DATABASE_HOST,
-            'port': MONGO_PORT,
-            'username': MONGO_USER,
-            'password': MONGO_PASS,
+            # 'port': MONGO_PORT,
+            # 'username': MONGO_USER,
+            # 'password': MONGO_PASS,
         },
     }
 }
@@ -129,14 +109,15 @@ DATABASES = {
 #     },
 # }
 
-# mongoengine.connect(db=MONGO_NAME,
-#                     host=MONGO_HOST,
-#                     username=MONGO_USER,
-#                     password=MONGO_PASS,
-#                     port=MONGO_PORT,
-#                     authentication_source='admin'
-#                     )
-
+# mongoengine.connect(MONGO_NAME, host=MONGO_DATABASE_HOST, port=MONGO_PORT)
+# mongoengine.connect(
+#     db=MONGO_NAME,
+#     host=MONGO_HOST,
+#     username=MONGO_USER,
+#     password=MONGO_PASS,
+#     port=MONGO_PORT,
+#     authentication_source='admin'
+# )
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -156,7 +137,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
@@ -169,7 +149,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
